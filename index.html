@@ -913,58 +913,50 @@
             </div>
           </div>
 
-          <form action="#" class="contact__form grid" onsubmit="sendEmail(event)">
-            <!-- Subject Field -->
+          <form action="https://api.web3forms.com/submit" method="POST" class="contact__form grid">
+
+            <input type="hidden" name="access_key" value="322a8540-1b5d-4118-b4f0-aa0c8209f9f0">
             <div class="contact__content">
-              <label for="subject" class="content__label">Subject</label>
+              <label for="subject" class="content__label">Name</label>
               <input
                 type="text"
-                id="subject"
                 class="contact__input"
+                name="name"
                 required
               />
             </div>
-
-            <!-- Message Field -->
             <div class="contact__content">
-              <label for="message" class="content__label">Message</label>
+              <label for="subject" class="content__label">Email</label>
+              <input
+                type="email"
+                class="contact__input"
+                name="email"
+                required
+              />
+            </div>
+            <div class="contact__content">
+              <label for="subject" class="content__label">Message</label>
               <textarea
                 id="message"
+                name="message"
                 cols="0"
-                rows="7"
+                rows="3"
                 class="contact__input"
                 required
               ></textarea>
             </div>
-
-            <!-- Submit Button -->
             <div>
               <button type="submit" class="button button--flex">
                 Send Message
                 <i class="uil uil-message button__icon"></i>
               </button>
             </div>
+            <!-- <input type="text" name="name" required> -->
+            <!-- <input type="email" name="email" required> -->
+            <!-- <textarea name="message" required></textarea> -->
+            <!-- <button type="submit">Submit Form</button> -->
+
           </form>
-
-          <script>
-            function sendEmail(event) {
-              event.preventDefault(); // Prevent form from reloading the page
-
-              const subject = document.getElementById("subject").value.trim();
-              const message = document.getElementById("message").value.trim();
-              const email = "prasiddha.shiwakoti@gmail.com";
-
-              if (subject === "" || message === "") {
-                alert("Please fill in both subject and message fields.");
-                return;
-              }
-
-              const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
-
-              // Open the default email client
-              window.location.href = mailtoLink;
-            }
-          </script>
         </div>
       </section>
     </main>
